@@ -9,7 +9,7 @@
 ```
 GET /users/me
 {
-  nickname: string,
+	nickname: string,
 	imgUrl: string,
 }
 ```
@@ -157,7 +157,7 @@ GET /records/lists/{user}?lastGameId={lastGameId}?count={count}
 				nickname: string,
 			},
 			keyScore: number,
-      opponentScore: number,
+			opponentScore: number,
 			playedAt: string, // 게임이 끝난 시간
 			result: string, // ("win", "lose", "tie")
 		}
@@ -169,7 +169,7 @@ GET /records/lists/{user}?lastGameId={lastGameId}?count={count}
 GET /records/details?gameId={gameId}
 {
 	duration: number, // 초
-  leftPongPower: number,
+	leftPongPower: number,
 	leftChange: number,
 	rightPongPower: number,
 	rightChange: number,
