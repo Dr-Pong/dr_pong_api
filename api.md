@@ -9,7 +9,7 @@
 ```
 GET /users/me
 {
-    nickname: string,
+  nickname: string,
 	imgUrl: string,
 }
 ```
@@ -45,13 +45,13 @@ GET /users/details/{user}
 ```
 GET /users/achievements/{user}
 {
-    achievements: [
+	achievements: [
 		{
-            name: string,
-            imgUrl: string,
-            content: string,
-            status: string // ("selected", "achieved", "unachieved"),
-        }
+			name: string,
+			imgUrl: string,
+			content: string,
+			status: string // ("selected", "achieved", "unachieved"),
+		}
 	]
 }
 ```
@@ -59,12 +59,12 @@ GET /users/achievements/{user}
 ```
 GET /users/emojies/{user}
 {
-    emojies: [
+	emojies: [
 		{
-            name: string,
+			name: string,
 			imgUrl: string,
-            selected: boolean,
-        }
+			selected: boolean,
+		}
 	]
 	// 사용자가 선택한 이모지를 담는 객체 추가 필요
 }
@@ -102,7 +102,7 @@ PATCH /users/emojies/{user}
 ```
 GET /ranks/season
 {
-    seasonName: string,
+  seasonName: string,
 }
 ```
 
@@ -157,7 +157,7 @@ GET /records/lists/{user}?lastGameId={lastGameId}?count={count}
 				nickname: string,
 			},
 			keyScore: number,
-            opponentScore: number,
+      opponentScore: number,
 			playedAt: string, // 게임이 끝난 시간
 			result: string, // ("win", "lose", "tie")
 		}
@@ -169,16 +169,16 @@ GET /records/lists/{user}?lastGameId={lastGameId}?count={count}
 GET /records/details?gameId={gameId}
 {
 	duration: number, // 초
-    leftPongPower: number,
+  leftPongPower: number,
 	leftChange: number,
 	rightPongPower: number,
-    rightChange: number,
-    rounds: [
-        {
-            bounces: number,
-            isLeftWin: boolean,
-        }
-    ] //
+	rightChange: number,
+	rounds: [
+		{
+			bounces: number,
+			isLeftWin: boolean,
+		}
+	],
 }
 
 ```
