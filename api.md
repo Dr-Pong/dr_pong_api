@@ -6,11 +6,11 @@
 
 ## Layout
 
-```json
+```ts
 GET /users/me
 {
-	"nickname": string,
-	"imgUrl": string,
+	"nickname": string;
+	"imgUrl": string;
 }
 ```
 
@@ -18,171 +18,184 @@ GET /users/me
 
 업적 미완
 
-```json
+```ts
 GET /users/details/{user}
-
 {
-	"nickname": string,
-	"imgUrl": string,
-	"level": number,
-	"title": string | null,
-	"statusMessage": string,
-	"totalStat": {
-		"winRate": number,
-		"win": number,
-		"lose": number,
-	},
-	"seasonStat": {
-		"winRate": number,
-		"win": number,
-		"lose": number,
-		"bestRecord": number,
-	},
-	"achievements": [string | null],
+	"nickname": string;
+	"imgUrl": string;
+	"level": number;
+	"title": string | null;
+	"statusMessage": string;
 }
 ```
 
-```json
-GET /users/achievements/{user}
+```ts
+GET /users/stats/{user}
+{
+	"totalStat": {
+		"winRate": number;
+		"win": number;
+		"lose": number;
+	};
+	"seasonStat": {
+		"winRate": number;
+		"win": number;
+		"lose": number;
+		"bestRecord": number;
+	};
+}
+```
+
+```ts
+GET /users/achievements/{user}?selected={true} // selected만 줌
 {
 	"achievements": [
 		{
-			"name": string,
-			"imgUrl": string,
-			"content": string,
-			"status": string // ("selected", "achieved", "unachieved"),
+			"id": number;
+			"name": string;
+			"imgUrl": string;
+			"content": string;
+			"status": string // ("selected"; "achieved"; "unachieved");
 		}
 	]
 }
 ```
 
-```json
-GET /users/emojies/{user}
+```ts
+GET /users/emojies/{user}?selected={true} // selected만 줌
 {
 	"emojies": [
 		{
-			"name": string,
-			"imgUrl": string,
-			"selected": boolean,
+			"id": number;
+			"name": string;
+			"imgUrl": string;
+			"selected": boolean;
 		}
 	]
-	// 사용자가 선택한 이모지를 담는 객체 추가 필요
 }
 ```
 
-```json
+```ts
 GET /users/titles/{user}
 {
-	"titles": [string],
+	"titles": [
+		{
+			"id": number;
+			"title": string;
+		}
+	]
 }
 ```
 
-```json
+```ts
 PATCH /users/details/{user}
 {
-	"imgUrl": multipartFile | null,
-	"title": string,
-	"message": string,
+	"imgUrl": file(formData) | null;
+	"title": number;
+	"message": string;
 }
 ```
 
-```json
+```ts
 PATCH /users/achievements/{user}
 {
-	"achievements": [string]
+	"achievements": [number]
 }
 ```
 
-```json
+```ts
 PATCH /users/emojies/{user}
+{
+	"emojies": [number]
+}
 ```
 
 ## Rank
 
-```json
+```ts
 GET /ranks/season
 {
-  "seasonName": string,
+  "seasonName": string;
 }
 ```
 
-```json
-GET /ranks/top?count={count} // top의 count
+```ts
+GET /ranks/top?count={count} // count: top의 개수
 {
 	"top": [
 		{
-			"rank": number,
-			"nickname": string,
-			"pongPower": number,
-			"imgUrl": string,
+			"rank": number;
+			"nickname": string;
+			"pongPower": number;
+			"imgUrl": string;
 		}
-	],
+	];
 }
 ```
 
-```json
-GET /ranks/bottom?offset={offset} // bottom의 시작점
+```ts
+GET /ranks/bottom?offset={offset} // offset: bottom rank의 시작 번호
 {
 	"bottom": [
 		{
-			"rank": number,
-			"nickname": string,
-			"pongPower": number,
+			"rank": number;
+			"nickname": string;
+			"pongPower": number;
 		}
-	],
+	];
 }
 ```
 
 ## RecentGames
 
-```json
+```ts
 GET /records/{user}
 {
 	"key": {
-		"imgUrl": string,
-		"nickname": string,
-	},
+		"imgUrl": string;
+		"nickname": string;
+	};
 }
 ```
 
-```json
+```ts
 GET /records/lists/{user}?lastGameId={lastGameId}?count={count}
 {
 	"records": [
 		{
-			"gameId": number,
-			"gameType": string, // ("rank", "normal")
+			"gameId": number;
+			"gameType": string; // ("rank"; "normal")
 			"opponent": {
-				"imgUrl": string,
-				"nickname": string,
-			},
-			"keyScore": number,
-			"opponentScore": number,
-			"playedAt": string, // 게임이 끝난 시간
-			"result": string, // ("win", "lose", "tie")
+				"imgUrl": string;
+				"nickname": string;
+			};
+			"keyScore": number;
+			"opponentScore": number;
+			"playedAt": string; // 게임이 끝난 시간
+			"result": string; // ("win"; "lose"; "tie")
 		}
 	]
 }
 ```
 
-```json
+```ts
 GET /records/details?gameId={gameId}
 {
-	"duration": number, // 초
-	"leftPongPower": number,
-	"leftChange": number,
-	"rightPongPower": number,
-	"rightChange": number,
+	"duration": number; // 초
+	"leftPongPower": number;
+	"leftChange": number;
+	"rightPongPower": number;
+	"rightChange": number;
 	"rounds": [
 		{
-			"bounces": number,
-			"isLeftWin": boolean,
+			"bounces": number;
+			"isLeftWin": boolean;
 		}
-	],
+	];
 }
 
 ```
 
-```json
+```ts
 GET /records/search?
 ```
