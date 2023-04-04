@@ -16,10 +16,8 @@ GET /users/me
 
 ## MyPage
 
-업적 미완
-
 ```ts
-GET /users/details/{user}
+GET /users/details/{nickname}
 {
 	"nickname": string;
 	"imgUrl": string;
@@ -30,7 +28,7 @@ GET /users/details/{user}
 ```
 
 ```ts
-GET /users/stats/{user}
+GET /users/stats/{nickname}
 {
 	"totalStat": {
 		"winRate": number;
@@ -47,7 +45,7 @@ GET /users/stats/{user}
 ```
 
 ```ts
-GET /users/achievements/{user}?selected={true} // selected만 줌
+GET /users/achievements/{nickname}?selected={true} // selected만 줌
 {
 	"achievements": [
 		{
@@ -55,14 +53,14 @@ GET /users/achievements/{user}?selected={true} // selected만 줌
 			"name": string;
 			"imgUrl": string;
 			"content": string;
-			"status": string // ("selected"; "achieved"; "unachieved");
+			"status": string // ("selected", "achieved", "unachieved");
 		}
 	]
 }
 ```
 
 ```ts
-GET /users/emojies/{user}?selected={true} // selected만 줌
+GET /users/emojies/{nickname}?selected={true} // selected만 줌
 {
 	"emojies": [
 		{
@@ -76,7 +74,7 @@ GET /users/emojies/{user}?selected={true} // selected만 줌
 ```
 
 ```ts
-GET /users/titles/{user}
+GET /users/titles/{nickname}
 {
 	"titles": [
 		{
@@ -88,7 +86,7 @@ GET /users/titles/{user}
 ```
 
 ```ts
-PATCH /users/details/{user}
+PATCH /users/details/{nickname}
 {
 	"imgUrl": file(formData) | null;
 	"title": number;
@@ -97,14 +95,14 @@ PATCH /users/details/{user}
 ```
 
 ```ts
-PATCH /users/achievements/{user}
+PATCH /users/achievements/{nickname}
 {
 	"achievements": [number]
 }
 ```
 
 ```ts
-PATCH /users/emojies/{user}
+PATCH /users/emojies/{nickname}
 {
 	"emojies": [number]
 }
@@ -115,7 +113,7 @@ PATCH /users/emojies/{user}
 ```ts
 GET /ranks/season
 {
-  "seasonName": string;
+	"seasonName": string;
 }
 ```
 
@@ -151,7 +149,7 @@ GET /ranks/bottom?offset={offset} // offset: bottom rank의 시작 번호
 ```ts
 GET /records/{user}
 {
-	"key": {
+	"keyPlayer": {
 		"imgUrl": string;
 		"nickname": string;
 	};
@@ -159,20 +157,20 @@ GET /records/{user}
 ```
 
 ```ts
-GET /records/lists/{user}?lastGameId={lastGameId}?count={count}
+GET /records/lists/{user}?count={count}&lastGameId={lastGameId}
 {
 	"records": [
 		{
 			"gameId": number;
-			"gameType": string; // ("rank"; "normal")
+			"gameType": string; // ("rank", "normal")
+			"playedAt": string; // 게임이 끝난 시간
+			"result": string; // ("win", "lose", "tie")
 			"opponent": {
 				"imgUrl": string;
 				"nickname": string;
 			};
-			"keyScore": number;
+			"keyPlayerScore": number;
 			"opponentScore": number;
-			"playedAt": string; // 게임이 끝난 시간
-			"result": string; // ("win"; "lose"; "tie")
 		}
 	]
 }
@@ -182,14 +180,14 @@ GET /records/lists/{user}?lastGameId={lastGameId}?count={count}
 GET /records/details?gameId={gameId}
 {
 	"duration": number; // 초
-	"leftPongPower": number;
-	"leftChange": number;
-	"rightPongPower": number;
-	"rightChange": number;
+	"keyPlayerPongPower": number;
+	"KeyPlayerChange": number;
+	"opponentPongPower": number;
+	"opponentChange": number;
 	"rounds": [
 		{
 			"bounces": number;
-			"isLeftWin": boolean;
+			"isKeyPlayerWin": boolean;
 		}
 	];
 }
