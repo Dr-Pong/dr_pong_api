@@ -17,7 +17,7 @@ GET /users/me
 ## MyPage
 
 ```ts
-GET /users/details/{nickname}
+GET /users/{nickname}/detail
 {
 	"nickname": string;
 	"imgUrl": string;
@@ -28,7 +28,7 @@ GET /users/details/{nickname}
 ```
 
 ```ts
-GET /users/stats/{nickname}
+GET /users/{nickname}/stat
 {
 	"totalStat": {
 		"winRate": number;
@@ -45,7 +45,7 @@ GET /users/stats/{nickname}
 ```
 
 ```ts
-GET /users/achievements/{nickname}?selected={true} // selected만 줌
+GET /users/{nickname}/achievements?selected={true} // selected만 줌
 {
 	"achievements": [
 		{
@@ -60,7 +60,7 @@ GET /users/achievements/{nickname}?selected={true} // selected만 줌
 ```
 
 ```ts
-GET /users/emojies/{nickname}?selected={true} // selected만 줌
+GET /users/{nickname}/emojies?selected={true} // selected만 줌
 {
 	"emojies": [
 		{
@@ -74,7 +74,7 @@ GET /users/emojies/{nickname}?selected={true} // selected만 줌
 ```
 
 ```ts
-GET /users/titles/{nickname}
+GET /users/{nickname}/titles
 {
 	"titles": [
 		{
@@ -86,7 +86,7 @@ GET /users/titles/{nickname}
 ```
 
 ```ts
-PATCH /users/details/{nickname}
+PATCH /users/{nickname}/detail
 {
 	"imgUrl": file(formData) | null;
 	"title": number;
@@ -95,14 +95,14 @@ PATCH /users/details/{nickname}
 ```
 
 ```ts
-PATCH /users/achievements/{nickname}
+PATCH /users/achievements
 {
 	"achievements": [number]
 }
 ```
 
 ```ts
-PATCH /users/emojies/{nickname}
+PATCH /users/{nickname}/emojies
 {
 	"emojies": [number]
 }
@@ -111,7 +111,7 @@ PATCH /users/emojies/{nickname}
 ## Rank
 
 ```ts
-GET /ranks/season
+GET /seasons/current
 {
 	"seasonName": string;
 }
@@ -132,7 +132,7 @@ GET /ranks/top?count={count} // count: top의 개수
 ```
 
 ```ts
-GET /ranks/bottom?offset={offset} // offset: bottom rank의 시작 번호
+GET /ranks/bottom?count={count}&offset={offset} // offset: bottom rank의 시작 번호
 {
 	"bottom": [
 		{
@@ -147,7 +147,7 @@ GET /ranks/bottom?offset={offset} // offset: bottom rank의 시작 번호
 ## RecentGames
 
 ```ts
-GET /records/{user}
+GET /records/key/{nickname}
 {
 	"keyPlayer": {
 		"imgUrl": string;
@@ -157,7 +157,7 @@ GET /records/{user}
 ```
 
 ```ts
-GET /records/lists/{user}?count={count}&lastGameId={lastGameId}
+GET /records/list?count={count}&nickname={nickname}&lastGameId={lastGameId}
 {
 	"records": [
 		{
@@ -177,7 +177,7 @@ GET /records/lists/{user}?count={count}&lastGameId={lastGameId}
 ```
 
 ```ts
-GET /records/details?gameId={gameId}
+GET /records/{gameId}/detail
 {
 	"duration": number; // 초
 	"keyPlayerPongPower": number;
