@@ -86,7 +86,7 @@ GET /users/{nickname}/titles
 ```
 
 ```ts
-PATCH /users/detail
+PATCH /users/{nickname}/detail
 {
 	"imgUrl": file(formData) | null;
 	"title": number;
@@ -95,14 +95,14 @@ PATCH /users/detail
 ```
 
 ```ts
-PATCH /users/achievements
+PATCH /users/{nickname}/achievements
 {
 	"achievements": [number]
 }
 ```
 
 ```ts
-PATCH /users/emojies
+PATCH /users/{nickname}/emojies
 {
 	"emojies": [number]
 }
