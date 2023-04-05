@@ -67,7 +67,7 @@ GET /users/{nickname}/emojies?selected={true} // selected만 줌
 			"id": number;
 			"name": string;
 			"imgUrl": string;
-			"selected": boolean;
+			"status": string // ("selected", "achieved", "unachieved");
 		}
 	]
 }
