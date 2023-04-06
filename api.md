@@ -33,11 +33,13 @@ GET /users/{nickname}/stat
 	"totalStat": {
 		"winRate": number;
 		"win": number;
+		"ties": number;
 		"lose": number;
 	};
 	"seasonStat": {
 		"winRate": number;
 		"win": number;
+		"ties": number;
 		"lose": number;
 		"currentRecord": number;
 		"bestRecord": number;
