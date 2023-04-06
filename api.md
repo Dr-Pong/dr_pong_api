@@ -42,7 +42,9 @@ GET /users/{nickname}/stat
 		"ties": number;
 		"lose": number;
 		"currentRecord": number;
+		"currentRank": number;
 		"bestRecord": number;
+		"bestRank": number;
 	};
 }
 ```
