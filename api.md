@@ -39,6 +39,7 @@ GET /users/{nickname}/stat
 		"winRate": number;
 		"win": number;
 		"lose": number;
+		"currentRecord": number;
 		"bestRecord": number;
 	};
 }
