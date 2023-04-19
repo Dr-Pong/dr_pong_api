@@ -41,10 +41,14 @@ GET /users/{nickname}/stat
 		"win": number;
 		"ties": number;
 		"lose": number;
-		"currentRecord": number;
-		"currentRank": number;
-		"bestRecord": number;
-		"bestRank": number;
+		"current": {
+			"record": number;
+			"rank": number;
+		};
+		"best": {
+			"record": number;
+			"rank": number;
+		}
 	};
 }
 ```
