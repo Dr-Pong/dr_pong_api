@@ -44,7 +44,7 @@ GET /users/{nickname}/stat
 		"record": number;
 		"rank": number;
 	};
-	"bestStat": {
+	"bestStat": { //역대최고를 
 		"record": number;
 		"rank": number;
 	};
