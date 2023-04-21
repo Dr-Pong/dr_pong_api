@@ -67,9 +67,9 @@ GET /users/{nickname}/achievements?selected={true} // selected만 줌
 ```
 
 ```ts
-GET /users/{nickname}/emojies?selected={true} // selected만 줌
+GET /users/{nickname}/emojis?selected={true} // selected만 줌
 {
-	"emojies": [
+	"emojis": [
 		{
 			"id": number;
 			"name": string;
@@ -109,9 +109,9 @@ PATCH /users/{nickname}/achievements
 ```
 
 ```ts
-PATCH /users/{nickname}/emojies
+PATCH /users/{nickname}/emojis
 {
-	"emojies": [number]
+	"emojis": [number]
 }
 ```
 
