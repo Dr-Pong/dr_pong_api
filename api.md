@@ -22,7 +22,10 @@ GET /users/{nickname}/detail
 	"nickname": string;
 	"imgUrl": string;
 	"level": number;
-	"title": string | null;
+	"title": {
+		"id": number;
+		"title": string;
+	} | null;
 	"statusMessage": string;
 }
 ```
