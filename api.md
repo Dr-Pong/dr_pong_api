@@ -99,7 +99,7 @@ GET /users/{nickname}/titles
 ```ts
 PATCH /users/{nickname}/detail
 {
-	"imgUrl": file(formData) | null;
+	"imgUrl": string | null;
 	"title": number | null;
 	"message": string;
 }
