@@ -45,12 +45,12 @@ GET /users/{nickname}/stat
 		"win": number;
 		"ties": number;
 		"lose": number;
-		"record": number;
-		"rank": number;
+		"record": number | null;
+		"rank": number | null;
 	};
 	"bestStat": { //역대최고를 
-		"record": number;
-		"rank": number;
+		"record": number | null;
+		"rank": number | null;
 	};
 }
 ```
