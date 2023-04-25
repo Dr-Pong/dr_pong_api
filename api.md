@@ -65,7 +65,7 @@ GET /users/{nickname}/achievements?selected={true} // selected만 줌
 			"imgUrl": string;
 			"content": string;
 			"status": string // ("selected", "achieved", "unachieved");
-		}
+		} | null
 	]
 }
 ```
@@ -79,7 +79,7 @@ GET /users/{nickname}/emojis?selected={true} // selected만 줌
 			"name": string;
 			"imgUrl": string;
 			"status": string // ("selected", "achieved", "unachieved");
-		}
+		} | null
 	]
 }
 ```
@@ -108,14 +108,14 @@ PATCH /users/{nickname}/detail
 ```ts
 PATCH /users/{nickname}/achievements
 {
-	"achievements": [number]
+	"achievements": [number | null]
 }
 ```
 
 ```ts
 PATCH /users/{nickname}/emojis
 {
-	"emojis": [number]
+	"emojis": [number | null]
 }
 ```
 
