@@ -11,7 +11,7 @@ GET /users/me
 {
 	"nickname": string;
 	"imgUrl": string;
-	"secondAuth": boolean;
+	"isSecondAuthOn": boolean;
 }
 ```
 
