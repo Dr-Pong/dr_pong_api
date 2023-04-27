@@ -1,6 +1,32 @@
 # Api 설계
 
 ## Login
+```ts
+POST /auth/42 | /auth/google
+request: {
+	"authCode": string;
+}
+response header: {
+	201: created;
+	401: unauthorized;
+}
+response body: {
+	"accessToken": string;
+}
+```
+## SignUp
+```ts
+POST /signup
+request: {
+	"nickname": string;
+	"imgUrl": string;
+}
+response header: {
+	201: created;
+	401: unauthorized;
+	409: 닉네임 중복;
+}
+```
 
 ## Main
 
@@ -12,6 +38,10 @@ GET /users/me
 	"nickname": string;
 	"imgUrl": string;
 	"isSecondAuthOn": boolean;
+}
+response header: {
+	201: created;
+	401: unauthorized;
 }
 ```
 
@@ -28,6 +58,10 @@ GET /users/{nickname}/detail
 		"title": string;
 	} | null;
 	"statusMessage": string;
+}
+response header: {
+	201: created;
+	401: unauthorized;
 }
 ```
 
@@ -53,6 +87,10 @@ GET /users/{nickname}/stat
 		"rank": number | null;
 	};
 }
+response header: {
+	201: created;
+	401: unauthorized;
+}
 ```
 
 ```ts
@@ -68,6 +106,10 @@ GET /users/{nickname}/achievements?selected={true} // selected만 줌
 		} | null
 	]
 }
+response header: {
+	201: created;
+	401: unauthorized;
+}
 ```
 
 ```ts
@@ -82,6 +124,10 @@ GET /users/{nickname}/emojis?selected={true} // selected만 줌
 		} | null
 	]
 }
+response header: {
+	201: created;
+	401: unauthorized;
+}
 ```
 
 ```ts
@@ -94,28 +140,44 @@ GET /users/{nickname}/titles
 		}
 	]
 }
+response header: {
+	201: created;
+	401: unauthorized;
+}
 ```
 
 ```ts
 PATCH /users/{nickname}/detail
-{
+request: {
 	"imgUrl": string | null;
 	"title": number | null;
 	"message": string;
+}
+response header: {
+	201: created;
+	401: unauthorized;
 }
 ```
 
 ```ts
 PATCH /users/{nickname}/achievements
-{
+request: {
 	"achievements": [number | null]
+}
+response header: {
+	201: created;
+	401: unauthorized;
 }
 ```
 
 ```ts
 PATCH /users/{nickname}/emojis
-{
+request: {
 	"emojis": [number | null]
+}
+response header: {
+	201: created;
+	401: unauthorized;
 }
 ```
 
