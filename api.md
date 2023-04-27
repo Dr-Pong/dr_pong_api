@@ -19,10 +19,11 @@ response body: {
 POST /signup
 request: {
 	"nickname": string;
-	"imgUrl": string;
+	"imgId": number;
 }
 response header: {
 	201: created;
+	400: bad request;
 	401: unauthorized;
 	409: 닉네임 중복;
 }
@@ -93,7 +94,21 @@ response header: {
 	401: unauthorized;
 }
 ```
-
+```ts
+GET /users/image
+{
+	"images": [
+		{
+			"id": number;
+			"imgUrl": stirng;
+		}
+	]
+}
+response header: {
+	201: created;
+	401: unauthorized;
+}
+```
 ```ts
 GET /users/{nickname}/achievements?selected={true} // selected만 줌
 {
@@ -150,7 +165,7 @@ response header: {
 ```ts
 PATCH /users/{nickname}/detail
 request: {
-	"imgUrl": string | null;
+	"imgId": number | null;
 	"title": number | null;
 	"message": string;
 }
