@@ -95,7 +95,7 @@ response header: {
 }
 ```
 ```ts
-GET /users/image
+GET /users/images
 {
 	"images": [
 		{
