@@ -7,6 +7,7 @@ request: {
 	"authCode": string;
 }
 response header: {
+	200: OK!;
 	201: created;
 	401: unauthorized;
 }
@@ -38,7 +39,7 @@ GET /users/me
 	"nickname": string;
 	"imgUrl": string;
 	"isSecondAuthOn": boolean;
-}
+} | null
 response header: {
 	201: created;
 	401: unauthorized;
