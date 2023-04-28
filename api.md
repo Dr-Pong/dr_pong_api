@@ -42,7 +42,7 @@ GET /users/me
 	"roleType": 'guest' | 'noname' | 'member' | 'admin';
 }
 response header: {
-	201: created;
+	200: created;
 	401: unauthorized;
 }
 ```
@@ -62,7 +62,7 @@ GET /users/{nickname}/detail
 	"statusMessage": string;
 }
 response header: {
-	201: created;
+	200: created;
 	401: unauthorized;
 }
 ```
@@ -90,7 +90,7 @@ GET /users/{nickname}/stat
 	};
 }
 response header: {
-	201: created;
+	200: created;
 	401: unauthorized;
 }
 ```
@@ -105,7 +105,7 @@ GET /users/images
 	]
 }
 response header: {
-	201: created;
+	200: created;
 	401: unauthorized;
 }
 ```
@@ -123,7 +123,7 @@ GET /users/{nickname}/achievements?selected={true} // selected만 줌
 	]
 }
 response header: {
-	201: created;
+	200: created;
 	401: unauthorized;
 }
 ```
@@ -141,7 +141,7 @@ GET /users/{nickname}/emojis?selected={true} // selected만 줌
 	]
 }
 response header: {
-	201: created;
+	200: created;
 	401: unauthorized;
 }
 ```
@@ -157,7 +157,7 @@ GET /users/{nickname}/titles
 	]
 }
 response header: {
-	201: created;
+	200: created;
 	401: unauthorized;
 }
 ```
@@ -170,7 +170,7 @@ request: {
 	"message": string;
 }
 response header: {
-	201: created;
+	202: created;
 	401: unauthorized;
 }
 ```
@@ -181,7 +181,7 @@ request: {
 	"achievements": [number | null]
 }
 response header: {
-	201: created;
+	202: created;
 	401: unauthorized;
 }
 ```
@@ -192,7 +192,7 @@ request: {
 	"emojis": [number | null]
 }
 response header: {
-	201: created;
+	202: created;
 	401: unauthorized;
 }
 ```
