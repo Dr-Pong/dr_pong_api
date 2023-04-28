@@ -3,7 +3,7 @@
 ## Login
 ```ts
 POST /auth/42 | /auth/google
-request: {
+request body: {
 	"authCode": string;
 }
 response header: {
