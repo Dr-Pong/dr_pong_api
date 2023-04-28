@@ -53,7 +53,10 @@ response header: {
 GET /users/{nickname}/detail
 {
 	"nickname": string;
-	"imgUrl": string;
+	"image": {
+		"id": number;
+		"url": string;
+	};
 	"level": number;
 	"title": {
 		"id": number;
