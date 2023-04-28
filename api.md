@@ -165,7 +165,7 @@ response header: {
 ```ts
 PATCH /users/{nickname}/detail
 request: {
-	"imgId": number | null;
+	"imgId": number;
 	"title": number | null;
 	"message": string;
 }
