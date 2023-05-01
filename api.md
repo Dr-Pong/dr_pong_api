@@ -241,47 +241,46 @@ GET /ranks/bottom?count={count}&offset={offset} // offset: bottom rank의 시작
 ## RecentGames
 
 ```ts
-GET /records/key/{nickname}
-{
-	"keyPlayer": {
-		"imgUrl": string;
-		"nickname": string;
-	};
-}
-```
-
-```ts
-GET /records/list?count={count}&nickname={nickname}&lastGameId={lastGameId}
+GET /users/{nickname}/records?count={count}&lastGameId={lastGameId}
 {
 	"records": [
 		{
 			"gameId": number;
 			"gameType": string; // ("rank", "normal")
 			"playedAt": string; // 게임이 끝난 시간
-			"result": string; // ("win", "lose", "tie")
-			"opponent": {
+			"me": {
 				"imgUrl": string;
 				"nickname": string;
+				"score": number;
 			};
-			"keyPlayerScore": number;
-			"opponentScore": number;
+			"you": {
+				"imgUrl": string;
+				"nickname": string;
+				"score": number;
+			};
+			"result": string; // ("win", "lose", "tie")
 		}
 	]
 }
+
 ```
 
 ```ts
-GET /records/{gameId}/detail
+GET /users/{nickname}/records/{gameId}
 {
 	"duration": number; // 초
-	"keyPlayerPongPower": number;
-	"KeyPlayerChange": number;
-	"opponentPongPower": number;
-	"opponentChange": number;
+	"me": {
+		"lp": number;
+		"lpChange": number;
+	}
+	"you": {
+		"lp": number;
+		"lpChange": number;
+	}
 	"rounds": [
 		{
 			"bounces": number;
-			"isKeyPlayerWin": boolean;
+			"meWin": boolean;
 		}
 	];
 }
