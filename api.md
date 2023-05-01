@@ -86,10 +86,12 @@ GET /users/{nickname}/stat
 		"lose": number;
 		"record": number | null;
 		"rank": number | null;
+		"tier": 'doctor' | 'master' | 'bachelor' | 'student' | 'egg';
 	};
 	"bestStat": { //역대최고를 
 		"record": number | null;
 		"rank": number | null;
+		"tier": 'doctor' | 'master' | 'bachelor' | 'student' | 'egg';
 	};
 }
 response header: {
@@ -216,7 +218,7 @@ GET /ranks/top?count={count} // count: top의 개수
 		{
 			"rank": number;
 			"nickname": string;
-			"pongPower": number;
+			"lp" : number;
 			"imgUrl": string;
 		}
 	];
@@ -230,7 +232,7 @@ GET /ranks/bottom?count={count}&offset={offset} // offset: bottom rank의 시작
 		{
 			"rank": number;
 			"nickname": string;
-			"pongPower": number;
+			"lp": number;
 		}
 	];
 }
