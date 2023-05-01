@@ -103,7 +103,7 @@ GET /users/images
 	"images": [
 		{
 			"id": number;
-			"imgUrl": stirng;
+			"url": stirng;
 		}
 	]
 }
