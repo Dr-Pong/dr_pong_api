@@ -261,6 +261,7 @@ GET /users/{nickname}/records?count={count}&lastGameId={lastGameId}
 			"result": string; // ("win", "lose", "tie")
 		}
 	]
+	"isLastPage": boolean;
 }
 
 ```
