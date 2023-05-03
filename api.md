@@ -42,7 +42,7 @@ GET /users/me
 	"roleType": 'guest' | 'noname' | 'member' | 'admin';
 }
 response header: {
-	200: created;
+	200: OK;
 	401: unauthorized;
 }
 ```
@@ -65,7 +65,7 @@ GET /users/{nickname}/detail
 	"statusMessage": string;
 }
 response header: {
-	200: created;
+	200: OK;
 	401: unauthorized;
 }
 ```
@@ -95,7 +95,7 @@ GET /users/{nickname}/stat
 	};
 }
 response header: {
-	200: created;
+	200: OK;
 	401: unauthorized;
 }
 ```
@@ -110,7 +110,7 @@ GET /users/images
 	]
 }
 response header: {
-	200: created;
+	200: OK;
 	401: unauthorized;
 }
 ```
@@ -128,7 +128,7 @@ GET /users/{nickname}/achievements?selected={true} // selected만 줌
 	]
 }
 response header: {
-	200: created;
+	200: OK;
 	401: unauthorized;
 }
 ```
@@ -146,7 +146,7 @@ GET /users/{nickname}/emojis?selected={true} // selected만 줌
 	]
 }
 response header: {
-	200: created;
+	200: OK;
 	401: unauthorized;
 }
 ```
@@ -162,20 +162,40 @@ GET /users/{nickname}/titles
 	]
 }
 response header: {
-	200: created;
+	200: OK;
 	401: unauthorized;
 }
 ```
 
 ```ts
-PATCH /users/{nickname}/detail
+PATCH /users/{nickname}/image
 request: {
 	"imgId": number;
+}
+response header: {
+	202: accepted;
+	401: unauthorized;
+}
+```
+
+```ts
+PATCH /users/{nickname}/title
+request: {
 	"title": number | null;
+}
+response header: {
+	202: accepted;
+	401: unauthorized;
+}
+```
+
+```ts
+PATCH /users/{nickname}/message
+request: {
 	"message": string;
 }
 response header: {
-	202: created;
+	202: accepted;
 	401: unauthorized;
 }
 ```
@@ -186,7 +206,7 @@ request: {
 	"achievements": [number | null]
 }
 response header: {
-	202: created;
+	202: accepted;
 	401: unauthorized;
 }
 ```
@@ -197,7 +217,7 @@ request: {
 	"emojis": [number | null]
 }
 response header: {
-	202: created;
+	202: accepted;
 	401: unauthorized;
 }
 ```
