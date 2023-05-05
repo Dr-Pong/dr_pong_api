@@ -170,7 +170,7 @@ response header: {
 ```ts
 PATCH /users/{nickname}/image
 request: {
-	"imgId": number;
+	"id": number;
 }
 response header: {
 	202: accepted;
@@ -181,7 +181,7 @@ response header: {
 ```ts
 PATCH /users/{nickname}/title
 request: {
-	"title": number | null;
+	"id": number | null;
 }
 response header: {
 	202: accepted;
@@ -203,7 +203,7 @@ response header: {
 ```ts
 PATCH /users/{nickname}/achievements
 request: {
-	"achievements": [number | null]
+	"ids": [number | null]
 }
 response header: {
 	202: accepted;
@@ -214,7 +214,7 @@ response header: {
 ```ts
 PATCH /users/{nickname}/emojis
 request: {
-	"emojis": [number | null]
+	"ids": [number | null]
 }
 response header: {
 	202: accepted;
