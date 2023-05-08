@@ -43,7 +43,6 @@ GET /users/me
 }
 response header: {
 	200: OK;
-	401: unauthorized;
 }
 ```
 
@@ -66,37 +65,56 @@ GET /users/{nickname}/detail
 }
 response header: {
 	200: OK;
-	401: unauthorized;
 }
 ```
 
 ```ts
-GET /users/{nickname}/stat
+GET /users/{nickname}/stats/total
 {
-	"totalStat": {
-		"winRate": number;
-		"win": number;
-		"ties": number;
-		"lose": number;
-	};
-	"seasonStat": {
-		"winRate": number;
-		"win": number;
-		"ties": number;
-		"lose": number;
-		"record": number | null;
-		"rank": number | null;
-		"tier": 'doctor' | 'master' | 'bachelor' | 'student' | 'egg';
-	};
-	"bestStat": { //역대최고를 
-		"record": number | null;
-		"rank": number | null;
-		"tier": 'doctor' | 'master' | 'bachelor' | 'student' | 'egg';
-	};
+	"winRate": number;
+	"wins": number;
+	"ties": number;
+	"loses": number;
 }
 response header: {
 	200: OK;
-	401: unauthorized;
+}
+```
+
+```ts
+GET /users/{nickname}/stats/season
+{
+	"winRate": number;
+	"wins": number;
+	"ties": number;
+	"loses": number;
+}
+response header: {
+	200: OK;
+}
+```
+
+```ts
+GET /users/{nickname}/ranks/total
+{
+	"record": number | null;
+	"rank": number | null;
+	"tier": 'doctor' | 'master' | 'bachelor' | 'student' | 'egg';
+}
+response header: {
+	200: OK;
+}
+```
+
+```ts
+GET /users/{nickname}/ranks/season
+{
+	"record": number | null;
+	"rank": number | null;
+	"tier": 'doctor' | 'master' | 'bachelor' | 'student' | 'egg';
+}
+response header: {
+	200: OK;
 }
 ```
 ```ts
@@ -111,7 +129,6 @@ GET /users/images
 }
 response header: {
 	200: OK;
-	401: unauthorized;
 }
 ```
 ```ts
@@ -129,7 +146,6 @@ GET /users/{nickname}/achievements?selected={true} // selected만 줌
 }
 response header: {
 	200: OK;
-	401: unauthorized;
 }
 ```
 
@@ -147,7 +163,6 @@ GET /users/{nickname}/emojis?selected={true} // selected만 줌
 }
 response header: {
 	200: OK;
-	401: unauthorized;
 }
 ```
 
@@ -163,7 +178,6 @@ GET /users/{nickname}/titles
 }
 response header: {
 	200: OK;
-	401: unauthorized;
 }
 ```
 
