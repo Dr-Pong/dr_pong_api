@@ -29,25 +29,62 @@ response header: {
 }
 ```
 
-## Main
-
-## Layout
-
+## Authentication
+```ts
+POST /auth/tfa
+request body: {
+}
+response body: {
+	redirectionUrl: string;
+	qrCode: string;
+	secretKey: string;
+}
+response header: {
+	201: created;
+	401: unauthorized; // no token
+}
+```
+```ts
+DELETE /auth/tfa
+response body: {
+}
+response header: {
+	200: OK!
+	401: unauthorized; // no token
+}
+````
+```ts
+POST /auth/tfa/otp
+request body: {
+	password: string; 
+}
+response header: {
+	200: OK;
+	40~:
+}
+response body: {
+	accessToken: string;
+}
+````
+## User
 ```ts
 GET /users/me
 {
 	"nickname": string;
 	"imgUrl": string;
-	"isSecondAuthOn": boolean;
+	"tfaRequired": boolean; // 수정
 	"roleType": 'guest' | 'noname' | 'member' | 'admin';
 }
 response header: {
 	200: OK;
 }
 ```
-
-## MyPage
-
+```ts
+GET /users/{nickname}/tfa
+response body: {
+	tfaOn: boolean;
+}
+```
 ```ts
 GET /users/{nickname}/detail
 {
@@ -272,7 +309,7 @@ GET /ranks/bottom?count={count}&offset={offset} // offset: bottom rank의 시작
 }
 ```
 
-## RecentGames
+## Record
 
 ```ts
 GET /users/{nickname}/records?count={count}&lastGameId={lastGameId}
