@@ -31,7 +31,7 @@ response header: {
 
 ## Authentication
 ```ts
-POST /auth/tfa
+GET /auth/tfa
 request body: {
 }
 response body: {
