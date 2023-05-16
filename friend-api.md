@@ -24,7 +24,7 @@
     ```
 3. 친구 요청 목록 조회 (pending list)
     ```tsx
-    GET /users/friends
+    GET /users/friends/pendings
     response body: {
         users: [
             {
