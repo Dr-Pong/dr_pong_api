@@ -1,19 +1,19 @@
 ## 채팅방 관련 API
 1. 채팅방 목록 조회
     ```tsx
-    GET /channels?page={page}&count={count}&order={'recent' | 'popular'}
+    GET /channels?page={page}&count={count}&order={'recent' | 'popular'}&keyword={keyword | null}
     response body: {
-        channels: [
-            {
-                id: number;
-                title: string; (중복 없음)
-                access: 'public' | 'protected'; // private 은 1:1 디엠 으로~~!
-                headCount: string;
-                maxCount: string;
-            }, ...
-        ]
-        currentPage: number;
-        totalPage: number;
+	    channels: [
+	        {
+		    id: number;
+		    title: string; (중복 없음)
+		    access: 'public' | 'protected'; // private 은 1:1 디엠 으로~~!
+		    headCount: string;
+		    maxCount: string;
+	         }, ...
+	    ]
+	    currentPage: number;
+	    totalPage: number;
     }
     ```
 2. 채팅방 참여자 목록 조회
