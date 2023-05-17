@@ -71,7 +71,7 @@ GET /users/me
 	"nickname": string;
 	"imgUrl": string;
 	"tfaRequired": boolean; // 수정
-	"roleType": 'guest' | 'noname' | 'member' | 'admin';
+	"roleType": 'guest' | 'noname' | 'member';
 }
 response header: {
 	200: OK;
