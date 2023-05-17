@@ -10,7 +10,7 @@
 		    access: 'public' | 'protected'; // private 은 1:1 디엠 으로~~!
 		    headCount: string;
 		    maxCount: string;
-	         }, ...
+	         }, 
 	    ]
 	    currentPage: number;
 	    totalPage: number;
