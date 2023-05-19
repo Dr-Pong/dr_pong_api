@@ -1,5 +1,5 @@
-## 채팅방 관련 API
-1. 채팅방 목록 조회
+## 채널 관련 API
+1. 채널 목록 조회
     ```tsx
     GET /channels?page={page}&count={count}&order={'recent' | 'popular'}&keyword={keyword | null}
     response body: {
@@ -15,8 +15,10 @@
 	    currentPage: number;
 	    totalPage: number;
     }
+    response header: {
+    }
     ```
-2. 채팅방 참여자 목록 조회
+2. 채널 참여자 목록 조회
     ```tsx
     GET /channels/{roomId}/participants
     response body: {
@@ -30,9 +32,11 @@
         headCount: string;
         maxCount: string;
     }
+    response header: {
+    }
     ```
 
-4. 채팅방 생성
+4. 채널 생성
     ```tsx
     POST /channels
     request body: {
@@ -40,21 +44,32 @@
         password: null | string;
         maxCount: number;
     }
+    response header: {
+이미 있는 이름
+안되는 패스워드
+안되는 카운트
+    }
     ```
 
-5. 채팅방 수정
+5. 채널 수정
     ```tsx
     PATCH /channels/{roomId}
     request body: {
         password: null | string;
     }
+    response header: {
+    안되는 비번
+    }
     ```
 
-6. 채팅방 삭제
+6. 채널 삭제
     ```tsx
     DELETE /channels/{roomId}
+    response header: {
+    실패
+    }
     ```
-7. 채팅방 입장
+7. 채널 입장
 
     ```tsx
     POST /channels/{roomId}/participants
@@ -62,20 +77,37 @@
         password: null | string;
     }
     response header: {
-
+    실패
+    없는 방
+    
     }
     ```
-8. 채팅방 퇴장
+8. 채널 퇴장
     ```tsx
     DELETE /channels/{roomId}/participants
+    response header: {
+    실패
+    없는 방
+    
+    }
     ```
-9. 채팅방 초대
+9. 채널 초대
     ```tsx
     POST /channels/{roomId}/invitation/{nickname}
+    response header: {
+    실패
+    없는 방
+    권한 없음(친구 아님?)
+    }
     ```
-10. 채팅방 초대 수락
+10. 채널 초대 수락->입장
     ```tsx
     POST /channels/{roomId}/magicpass
+    response header: {
+    실패
+    없는 방
+
+    }
     ```
 11. 채팅 전송
     ```tsx
