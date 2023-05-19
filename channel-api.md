@@ -106,7 +106,7 @@
     response header: {
     실패
     없는 방
-
+이미 속한 방
     }
     ```
 11. 채팅 전송
@@ -116,22 +116,40 @@
         message: string;
     }
     response header: {
+    실패 
+없는 방 | 잘못된 방
 
     }
     ```
 12. 관리자 / owner 권한 (킥 / 벤 / 뮤트)
     ```tsx
     POST /channels/{roomId}/ban/{nickname}
+    response header {
+    이미 밴한 유저
+    없는 유저
+    }
     ```
 
     ```tsx
     POST /channels/{roomId}/kick/{nickname}
+    response header {
+    이미 킥한 유저
+    없는 유저
+    }
     ```
 
     ```tsx
     POST /channels/{roomId}/mute/{nickname}
+    response header {
+    이미 뮤트한 유저
+    없는 유저
+    }
     ```
 
     ```jsx
     DELETE /channels/{roomId}/mute/{nickname}
+    response header {
+    뮤트가 아닌 유저
+    없는 유저
+    }
     ```
