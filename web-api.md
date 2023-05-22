@@ -1,143 +1,146 @@
 # Api 설계
+
 ```ts
 GET /users/{nickname}/detail
-{
-	"nickname": string;
-	"image": {
-		"id": number;
-		"url": string;
+response body {
+	nickname: string;
+	image: {
+		id: number;
+		url: string;
 	};
-	"level": number;
-	"title": {
-		"id": number;
-		"title": string;
+	level: number;
+	title: {
+		id: number;
+		title: string;
 	} | null;
-	"statusMessage": string;
+	statusMessage: string;
 }
-response header: {
+response header {
 	200: OK;
 }
 ```
 
 ```ts
 GET /users/{nickname}/stats/total
-{
-	"winRate": number;
-	"wins": number;
-	"ties": number;
-	"loses": number;
+response body {
+	winRate: number;
+	wins: number;
+	ties: number;
+	loses: number;
 }
-response header: {
+response header {
 	200: OK;
 }
 ```
 
 ```ts
 GET /users/{nickname}/stats/season
-{
-	"winRate": number;
-	"wins": number;
-	"ties": number;
-	"loses": number;
+response body {
+	winRate: number;
+	wins: number;
+	ties: number;
+	loses: number;
 }
-response header: {
+response header {
 	200: OK;
 }
 ```
 
 ```ts
 GET /users/{nickname}/ranks/total
-{
-	"record": number | null;
-	"rank": number | null;
-	"tier": 'doctor' | 'master' | 'bachelor' | 'student' | 'egg';
+response body {
+	record: number | null;
+	rank: number | null;
+	tier: 'doctor' | 'master' | 'bachelor' | 'student' | 'egg';
 }
-response header: {
+response header {
 	200: OK;
 }
 ```
 
 ```ts
 GET /users/{nickname}/ranks/season
-{
-	"record": number | null;
-	"rank": number | null;
-	"tier": 'doctor' | 'master' | 'bachelor' | 'student' | 'egg';
+response body {
+	record: number | null;
+	rank: number | null;
+	tier: 'doctor' | 'master' | 'bachelor' | 'student' | 'egg';
 }
-response header: {
+response header {
 	200: OK;
 }
 ```
+
 ```ts
 GET /users/images
-{
-	"images": [
+response body {
+	images: [
 		{
-			"id": number;
-			"url": stirng;
+			id: number;
+			url: string;
 		}
 	]
 }
-response header: {
+response header {
 	200: OK;
 }
 ```
+
 ```ts
 GET /users/{nickname}/achievements?selected={true} // selected만 줌
-{
-	"achievements": [
+response body {
+	achievements: [
 		{
-			"id": number;
-			"name": string;
-			"imgUrl": string;
-			"content": string;
-			"status": string // ("selected", "achieved", "unachieved");
+			id: number;
+			name: string;
+			imgUrl: string;
+			content: string;
+			status: 'selected' | 'achieved' | 'unachieved';
 		} | null
 	]
 }
-response header: {
+response header {
 	200: OK;
 }
 ```
 
 ```ts
 GET /users/{nickname}/emojis?selected={true} // selected만 줌
-{
-	"emojis": [
+response body {
+	emojis: [
 		{
-			"id": number;
-			"name": string;
-			"imgUrl": string;
-			"status": string // ("selected", "achieved", "unachieved");
+			id: number;
+			name: string;
+			imgUrl: string;
+			status: 'selected' | 'achieved' | 'unachieved';
 		} | null
 	]
 }
-response header: {
+response header {
 	200: OK;
 }
 ```
 
 ```ts
 GET /users/{nickname}/titles
-{
-	"titles": [
+response body {
+	titles: [
 		{
-			"id": number;
-			"title": string;
+			id: number;
+			title: string;
 		}
 	]
 }
-response header: {
+response header {
 	200: OK;
 }
 ```
 
 ```ts
 PATCH /users/{nickname}/image
-request: {
-	"id": number;
+request body {
+	id: number;
 }
-response header: {
+response header {
 	202: accepted;
 	401: unauthorized;
 }
@@ -145,10 +148,10 @@ response header: {
 
 ```ts
 PATCH /users/{nickname}/title
-request: {
-	"id": number | null;
+request body {
+	id: number | null;
 }
-response header: {
+response header {
 	202: accepted;
 	401: unauthorized;
 }
@@ -156,10 +159,10 @@ response header: {
 
 ```ts
 PATCH /users/{nickname}/message
-request: {
-	"message": string;
+request body {
+	message: string;
 }
-response header: {
+response header {
 	202: accepted;
 	401: unauthorized;
 }
@@ -167,10 +170,10 @@ response header: {
 
 ```ts
 PATCH /users/{nickname}/achievements
-request: {
-	"ids": [number | null]
+request body {
+	ids: [number | null];
 }
-response header: {
+response header {
 	202: accepted;
 	401: unauthorized;
 }
@@ -178,10 +181,10 @@ response header: {
 
 ```ts
 PATCH /users/{nickname}/emojis
-request: {
-	"ids": [number | null]
+request body {
+	ids: [number | null];
 }
-response header: {
+response header {
 	202: accepted;
 	401: unauthorized;
 }
@@ -191,20 +194,20 @@ response header: {
 
 ```ts
 GET /seasons/current
-{
-	"seasonName": string;
+response body {
+	seasonName: string;
 }
 ```
 
 ```ts
 GET /ranks/top?count={count} // count: top의 개수
-{
-	"top": [
+response body {
+	top: [
 		{
-			"rank": number;
-			"nickname": string;
-			"lp" : number;
-			"imgUrl": string;
+			rank: number;
+			nickname: string;
+			lp : number;
+			imgUrl: string;
 		}
 	];
 }
@@ -212,12 +215,12 @@ GET /ranks/top?count={count} // count: top의 개수
 
 ```ts
 GET /ranks/bottom?count={count}&offset={offset} // offset: bottom rank의 시작 번호
-{
-	"bottom": [
+response body {
+	bottom: [
 		{
-			"rank": number;
-			"nickname": string;
-			"lp": number;
+			rank: number;
+			nickname: string;
+			lp: number;
 		}
 	];
 }
@@ -227,52 +230,48 @@ GET /ranks/bottom?count={count}&offset={offset} // offset: bottom rank의 시작
 
 ```ts
 GET /users/{nickname}/records?count={count}&lastGameId={lastGameId}
-{
-	"records": [
+response body {
+	records: [
 		{
-			"gameId": number;
-			"gameType": string; // ("rank", "normal")
-			"playedAt": string; // 게임이 끝난 시간
-			"me": {
-				"imgUrl": string;
-				"nickname": string;
-				"score": number;
+			gameId: number;
+			gameType: 'rank' | 'normal';
+			playedAt: string; // 게임이 끝난 시간
+			me: {
+				imgUrl: string;
+				nickname: string;
+				score: number;
 			};
-			"you": {
-				"imgUrl": string;
-				"nickname": string;
-				"score": number;
+			you: {
+				imgUrl: string;
+				nickname: string;
+				score: number;
 			};
-			"result": string; // ("win", "lose", "tie")
+			result: 'win', 'lose', 'tie';
 		}
 	]
-	"isLastPage": boolean;
+	isLastPage: boolean;
 }
 
 ```
 
 ```ts
 GET /users/{nickname}/records/{gameId}
-{
-	"duration": number; // 초
-	"me": {
-		"lp": number;
-		"lpChange": number;
+response body {
+	duration: number; // 초
+	me: {
+		lp: number;
+		lpChange: number;
 	}
-	"you": {
-		"lp": number;
-		"lpChange": number;
+	you: {
+		lp: number;
+		lpChange: number;
 	}
-	"rounds": [
+	rounds: [
 		{
-			"bounces": number;
-			"meWin": boolean;
+			bounces: number;
+			meWin: boolean;
 		}
 	];
 }
 
-```
-
-```ts
-GET /records/search?
 ```
