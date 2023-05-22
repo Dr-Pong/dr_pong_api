@@ -2,129 +2,129 @@
 
 1.  채널 목록 조회
 
-    ```json
+    ```ts
     GET /channels?page={page}&count={count}&order={'recent' | 'popular'}&keyword={keyword | null}
-    response body: {
-    		channels: [
-    				{
+    response body {
+    	channels: [
+    		{
     			id: number;
     			title: string; (중복 없음)
     			access: 'public' | 'protected';
     			headCount: string;
     			maxCount: string;
-    					},
-    		]
-    		currentPage: number;
-    		totalPage: number;
+    		},
+    	]
+    	currentPage: number;
+    	totalPage: number;
     }
-    response header: {
-    		200: ok;
+    response header {
+    	200: ok;
     }
     ```
 
 2.  채널 참여자 목록 조회
 
-    ```json
+    ```ts
     GET /channels/{roomId}/participants
-    	response body: {
-    		me: {
+    response body {
+    	me: {
+    		nickname: string;
+    		imgUrl: string;
+    		roleType: 'owner' | 'admin' | 'normal';
+    		isMuted: boolean;
+    	}
+    	participants: [
+    		{
     			nickname: string;
     			imgUrl: string;
     			roleType: 'owner' | 'admin' | 'normal';
     			isMuted: boolean;
-    		}
-    			participants: [
-    				{
-    					nickname: string;
-    					imgUrl: string;
-    					roleType: 'owner' | 'admin' | 'normal';
-    					isMuted: boolean;
-    				}...
-    			]
-    			headCount: string;
-    			maxCount: string;
-    	}
-    	response header: {
-    			200: ok;
-    	}
+    		}...
+    	];
+    	headCount: string;
+    	maxCount: string;
+    }
+    response header {
+    	200: ok;
+    }
     ```
 
 3.  채널 생성
 
-    ```json
+    ```ts
     POST /channels
-    	request body: {
-    		title: string;
-    		access: public | private;
-    		password: null | string;
-    		maxCount: number;
-    	}
-    	response header: {
-    		200: ok;
-    		400: title taken;
-    	}
+    request body {
+    	title: string;
+    	access: public | private;
+    	password: null | string;
+    	maxCount: number;
+    }
+    response header {
+    	200: ok;
+    	400: title taken;
+    }
     ```
 
 4.  채널 수정
 
-    ```json
+    ```ts
     PATCH /channels/{roomId}
-    request body: {
-    		password: null | string;
-    		access: public | private;
+    request body {
+    	password: null | string;
+    	access: public | private;
     }
-    response header: {
-    		200: ok;
+    response header {
+    	200: ok;
     }
     ```
 
 5.  채널 삭제
 
-    ```json
+    ```ts
     DELETE /channels/{roomId}
-    response header: {
-    		200: ok;
+    response header {
+    	200: ok;
     }
     ```
 
 6.  채널 입장
 
-    ```json
+    ```ts
     POST /channels/{roomId}/participants
-    request body: {
+    request body {
         password: null | string;
     }
-    response header: {
-    		200: ok;
-    		400: full bang | wrong password | private | no bang;
+    response header {
+    	200: ok;
+    	400: full bang | wrong password | private | no bang;
     }
     ```
 
 7.  채널 퇴장
 
-    ```json
+    ```ts
     DELETE /channels/{roomId}/participants
-    response header: {
-    		200: ok;
-    		400: no bang;
+    response header {
+    	200: ok;
+    	400: no bang;
     }
     ```
 
 8.  채널 초대
 
-    ```json
+    ```ts
     POST /channels/{roomId}/invitation/{nickname}
-    response header: {
-    		200: ok;
-    		400: no bang;
+    response header {
+    	200: ok;
+    	400: no bang;
     }
     ```
 
 9.  채널 초대 수락->입장
 
-    ```json
+    ```ts
     POST /channels/{roomId}/magicpass
-    response header: {
+    response header {
     	200: ok;
         400: full bang | no bang;
     }
@@ -132,20 +132,20 @@
 
 10. 채팅 전송
 
-    ```json
+    ```ts
     POST /channels/{roomId}/chat
-    response body: {
+    response body {
     	message: string;
     }
-    response header: {
+    response header {
     	200: ok;
-    		400: no bang;
+    	400: no bang;
     }
     ```
 
 11. 관리자 / owner 권한 (킥 / 벤 / 뮤트)
 
-    ```json
+    ```ts
     POST /channels/{roomId}/ban/{nickname}
     response header {
     	200: ok;
@@ -153,7 +153,7 @@
     }
     ```
 
-    ```json
+    ```ts
     POST /channels/{roomId}/kick/{nickname}
     response header {
     	200: ok;
@@ -161,7 +161,7 @@
     }
     ```
 
-    ```json
+    ```ts
     POST /channels/{roomId}/mute/{nickname}
     response header {
     	200: ok;
@@ -169,7 +169,7 @@
     }
     ```
 
-    ```json
+    ```ts
     DELETE /channels/{roomId}/mute/{nickname}
     response header {
     	200: ok;
@@ -179,9 +179,9 @@
 
 12. 내가 속해있는 방
 
-    ```json
+    ```ts
     GET /channels/me
-    response body: {
+    response body {
     	myChannel: {
     		id: number;
     		title: string; (중복 없음)
