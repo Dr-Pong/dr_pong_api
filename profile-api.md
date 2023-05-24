@@ -1,5 +1,4 @@
-# Api 설계
-
+## Profile
 ```ts
 GET /users/{nickname}/detail
 response body {
@@ -188,90 +187,4 @@ response header {
 	202: accepted;
 	401: unauthorized;
 }
-```
-
-## Rank
-
-```ts
-GET /seasons/current
-response body {
-	seasonName: string;
-}
-```
-
-```ts
-GET /ranks/top?count={count} // count: top의 개수
-response body {
-	top: [
-		{
-			rank: number;
-			nickname: string;
-			lp : number;
-			imgUrl: string;
-		}
-	];
-}
-```
-
-```ts
-GET /ranks/bottom?count={count}&offset={offset} // offset: bottom rank의 시작 번호
-response body {
-	bottom: [
-		{
-			rank: number;
-			nickname: string;
-			lp: number;
-		}
-	];
-}
-```
-
-## Record
-
-```ts
-GET /users/{nickname}/records?count={count}&lastGameId={lastGameId}
-response body {
-	records: [
-		{
-			gameId: number;
-			gameType: 'rank' | 'normal';
-			playedAt: string; // 게임이 끝난 시간
-			me: {
-				imgUrl: string;
-				nickname: string;
-				score: number;
-			};
-			you: {
-				imgUrl: string;
-				nickname: string;
-				score: number;
-			};
-			result: 'win', 'lose', 'tie';
-		}
-	]
-	isLastPage: boolean;
-}
-
-```
-
-```ts
-GET /users/{nickname}/records/{gameId}
-response body {
-	duration: number; // 초
-	me: {
-		lp: number;
-		lpChange: number;
-	}
-	you: {
-		lp: number;
-		lpChange: number;
-	}
-	rounds: [
-		{
-			bounces: number;
-			meWin: boolean;
-		}
-	];
-}
-
 ```
