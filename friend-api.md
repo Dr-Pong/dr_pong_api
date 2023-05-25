@@ -74,18 +74,19 @@
 7.  DM 대화 내역 - 쿼리 어떻게 할지 고민 필요
 
     ```ts
-    GET /users/friends/{nickname}/chat?(백엔드 정해지면 쿼리 셋팅하기)
+    GET /users/friends/{nickname}/chat?offset={offset}&count={count}
     response body {
-    	chats: [
-    		{
-    			message: string;
-    			nickname: string;
-    			createdAt: Date;
-    		}, ...
-    	]
+        chats: [
+            {
+                message: string;
+                nickname: string;
+                createdAt: Date;
+            }, ...
+        ],
+        isLastPage: boolean;
     }
     response header {
-    	200: ok;
+        200: ok;
     }
     ```
 
