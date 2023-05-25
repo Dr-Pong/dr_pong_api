@@ -113,7 +113,7 @@
     		{
     			nickname: string;
     			imgUrl: string;
-    			hasNewChat: boolean;
+    			newChats: number;
     		}
     	]...;
     }
