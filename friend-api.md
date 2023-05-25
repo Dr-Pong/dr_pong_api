@@ -127,20 +127,5 @@
     	200: ok;
     }
     ```
-11. 알림
-    ```ts
-    GET /users/notifications
-    response body {
-    	notifications: {
-            friendRequest: number;
-            invitations: [
-                {
-                    timeLeft: number;
-                    남준아 
-                },
-                ...
-            ]
-        }
-    }
-    ```
+
 
