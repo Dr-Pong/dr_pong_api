@@ -10,27 +10,45 @@
     ```ts
     GET /users/notifications/games
     response body {
-	    invitations: [
-		    {
-			    from: string;
-			    createdAt: date;
-		    },
-		    ...
-	    ]
+        invitations: [
+		{
+		    id: string;
+		    from: string;
+		    createdAt: date;
+		},
+		...
+        ]
     }
     ```
 3. 채널 초대
     ```ts
     GET /users/notifications/channels
     response body {
-	    invitations: [
-		    {
-			    channelId: number;
-			    channelName: string;
-			    from: string;
-			    createdAt: date;
-		    },
-		    ...
-	    ]
+        invitations: [
+            {
+                id: string;
+                channelId: number;
+                channelName: string;
+                from: string;
+                createdAt: date;
+            },
+            ...
+        ]
+    }
+    ```
+4. 게임 초대 삭제
+    ```ts
+    DELETE /users/notifications/games/{id}
+    response header {
+	    200: ok;
+	    400: error;
+    }
+    ```
+5. 채널 초대 삭제
+    ```ts
+    DELETE /users/notifications/channels/{id}
+    response header {
+	    200: ok;
+	    400: error;
     }
     ```
