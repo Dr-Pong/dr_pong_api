@@ -131,7 +131,7 @@
 11. 새로운 DM 유무 확인
 
     ```ts
-       GET /users/friends/chats/new
+    GET /users/friends/chats/new
     response body {
         hasNewChat: boolean;
     }
