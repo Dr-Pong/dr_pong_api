@@ -107,7 +107,7 @@
 9.  진행 중인 DM 목록 받기
 
     ```ts
-    GET /users/friends/chats
+    GET /users/friends/chatlist
     response body {
     	chats: [
     		{
