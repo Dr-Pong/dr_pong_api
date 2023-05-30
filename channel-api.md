@@ -7,11 +7,11 @@
     response body {
     	channels: [
     		{
-    			id: number;
+    			id: string;
     			title: string; (중복 없음)
     			access: 'public' | 'protected';
-    			headCount: string;
-    			maxCount: string;
+    			headCount: number;
+    			maxCount: number;
     		},
     	]
     	currentPage: number;
@@ -41,8 +41,8 @@
     			isMuted: boolean;
     		}...
     	];
-    	headCount: string;
-    	maxCount: string;
+    	headCount: number;
+    	maxCount: number;
     }
     response header {
     	200: ok;
@@ -183,10 +183,10 @@
     GET /channels/me
     response body {
     	myChannel: {
-    		id: number;
+    		id: string;
     		title: string; (중복 없음)
-    		headCount: string;
-    		maxCount: string;
+    		headCount: number;
+    		maxCount: number;
     	} | null;
     }
     response header {
