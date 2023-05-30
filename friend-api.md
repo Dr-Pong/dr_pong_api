@@ -109,7 +109,7 @@
     ```ts
     GET /users/friends/chatlist
     response body {
-    	chats: [
+    	chatList: [
     		{
     			nickname: string;
     			imgUrl: string;
