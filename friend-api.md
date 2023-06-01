@@ -74,7 +74,7 @@
 7.  DM 대화 내역 - 쿼리 어떻게 할지 고민 필요
 
     ```ts
-    GET /users/friends/{nickname}/chat?offset={offset}&count={count}
+    GET /users/friends/{nickname}/chats?offset={offset}&count={count}
     response body {
 	    chatList: [
 		    {
@@ -95,7 +95,7 @@
 
     ```ts
 
-    POST /users/friends/{nickname}/chat
+    POST /users/friends/{nickname}/chats
     response body {
     	message: string;
     }
