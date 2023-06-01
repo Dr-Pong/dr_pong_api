@@ -133,7 +133,7 @@
 10. 채팅 전송
 
     ```ts
-    POST /channels/{roomId}/chat
+    POST /channels/{roomId}/chats
     response body {
     	message: string;
     }
@@ -194,21 +194,24 @@
     }
     ```
     
- 13. 채팅 내역 불러오기
-    ```ts
-    GET /channels/{roomId}/chat?offset={offset}&count={count}
-    response body {
-	    chatList: [
-		    {
-			    id: number;
-    			message: string;
-	    		nickname: string;
-		    	createdAt: Date;
-    		}, ...
-	    ],
-    	isLastPage: boolean;
-    }
-    response header {
-	    200: ok;
-    }
-    ```
+13. 채팅 내역 불러오기
+	```ts
+	GET /channels/{roomId}chats?offset={offset}&count={count}
+	response body {
+		chats: [
+			{
+				id: number;
+				message: string;
+				nickname: string;
+				createdAt: Date;
+			}, ...
+		],
+		isLastPage: boolean;
+	}
+	response header {
+		200: ok;
+	}
+	```
+	
+
+ 
