@@ -193,3 +193,22 @@
     	200: ok;
     }
     ```
+    
+ 13. 채팅 내역 불러오기
+    ```ts
+    GET /channels/{roomId}/chat?offset={offset}&count={count}
+    response body {
+	    chatList: [
+		    {
+			    id: number;
+    			message: string;
+	    		nickname: string;
+		    	createdAt: Date;
+    		}, ...
+	    ],
+    	isLastPage: boolean;
+    }
+    response header {
+	    200: ok;
+    }
+    ```
