@@ -76,17 +76,18 @@
     ```ts
     GET /users/friends/{nickname}/chat?offset={offset}&count={count}
     response body {
-        chats: [
-            {
-                message: string;
-                nickname: string;
-                createdAt: Date;
-            }, ...
-        ],
-        isLastPage: boolean;
+	    chatList: [
+		    {
+			    id: number;
+    			message: string;
+	    		nickname: string;
+		    	createdAt: Date;
+    		}, ...
+	    ],
+    	isLastPage: boolean;
     }
     response header {
-        200: ok;
+	    200: ok;
     }
     ```
 
