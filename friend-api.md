@@ -96,7 +96,7 @@
     ```ts
 
     POST /users/friends/{nickname}/chats
-    response body {
+    request body {
     	message: string;
     }
     response header {
