@@ -146,6 +146,22 @@
 11. 관리자 / owner 권한 (킥 / 벤 / 뮤트)
 
     ```ts
+    POST /channels/{roomId}/admin/{nickname}
+    response header {
+    	200: ok;
+    	400: no bang | error;
+    }
+    ```
+
+    ```ts
+    DELETE /channels/{roomId}/admin/{nickname}
+    response header {
+    	200: ok;
+    	400: no bang | error;
+    }
+    ```
+   
+    ```ts
     POST /channels/{roomId}/ban/{nickname}
     response header {
     	200: ok;
