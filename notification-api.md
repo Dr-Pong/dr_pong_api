@@ -3,7 +3,7 @@
     ```ts
     GET /users/notifications/friends
     response body {
-	    friendRequest: number; // 친구 요청이 없으면 0
+	    friendRequest: number; // 친구 요청이 없으면 0 요청 최대50개만 가능
     }
     ```
 2. 게임 초대
