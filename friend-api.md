@@ -110,7 +110,7 @@
     ```ts
     GET /users/friends/chatlist
     response body {
-    	chatList: [
+    	dmList: [
     		{
     			nickname: string;
     			imgUrl: string;
