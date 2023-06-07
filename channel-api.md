@@ -214,7 +214,7 @@
 	```ts
 	GET /channels/{roomId}chats?offset={offset}&count={count}
 	response body {
-		chats: [
+		chatList: [
 			{
 				id: number;
 				message: string;
