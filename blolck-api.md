@@ -2,7 +2,7 @@
 
 1. 차단 목록 조회
    ```ts
-   GET /blocks
+   GET /users/blocks
    response body {
        users: [
            {
