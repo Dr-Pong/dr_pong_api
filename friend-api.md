@@ -76,7 +76,7 @@
     ```ts
     GET /users/friends/{nickname}/chats?offset={offset}&count={count}
     response body {
-	    chatList: [
+	    chats: [
 		    {
 			    id: number;
     			message: string;
