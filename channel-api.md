@@ -217,9 +217,10 @@
 		chats: [
 			{
 				id: number;
-				message: string;
-				nickname: string;
+				message: string; // system인 경우 'mute', 'unmute', 'setadmin', 'unsetadmin', 'kick', 'ban'
+				nickname: string; // system일 경우 당한사람
 				createdAt: Date;
+				type: 'me' | 'others' | 'system';
 			}, ...
 		],
 		isLastPage: boolean;
