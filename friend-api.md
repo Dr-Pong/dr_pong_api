@@ -22,7 +22,7 @@
     ```ts
     POST /users/friends/pendings/{nickname}
     response header {
-    	200: ok;
+    	201: ok;
     	400: error;
     } // 요청을 둘다 보냈을 경우 친구 수락
     ```
@@ -49,7 +49,7 @@
     ```ts
     POST /users/friends/{ nickname };
     response header {
-    	200: ok;
+    	201: ok;
     }
     ```
 
@@ -100,7 +100,7 @@
     	message: string;
     }
     response header {
-    	200: ok;
+    	201: ok;
     	400: not friend;
     }
     ```
