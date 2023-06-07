@@ -77,13 +77,14 @@
     GET /users/friends/{nickname}/chats?offset={offset}&count={count}
     response body {
 	    chats: [
-		    {
-			    id: number;
-    			message: string;
-	    		nickname: string;
-		    	createdAt: Date;
-    		}, ...
-	    ],
+			{
+				id: number;
+				message: string;
+				nickname: string;
+				createdAt: Date;
+				type: 'me' | 'others';
+			}, ...
+		],
     	isLastPage: boolean;
     }
     response header {
