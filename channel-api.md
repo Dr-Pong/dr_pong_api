@@ -217,9 +217,9 @@
 		chats: [
 			{
 				id: number;
-				message: string; // system인 경우 'mute', 'unmute', 'setadmin', 'unsetadmin', 'kick', 'ban'
+				message: string; // system인 경우 'mute' | 'unmute' | 'setadmin' | 'unsetadmin' | 'kick' | 'ban' | 'join' | 'leave'
 				nickname: string; // system일 경우 당한사람
-				createdAt: Date;
+				time: Date;
 				type: 'me' | 'others' | 'system';
 			}, ...
 		],
