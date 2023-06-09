@@ -211,7 +211,7 @@
 
 6. 유저 추방 (kick)
     ```ts
-    POST /channels/{roomId}/kick/{nickname}
+    DELETE /channels/{roomId}/kick/{nickname}
     response header {
     	200: ok;
     	400: no bang | error;
