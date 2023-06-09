@@ -65,29 +65,7 @@
     }
     ```
 
-4.  채널 수정
-
-    ```ts
-    PATCH /channels/{roomId}
-    request body {
-    	password: null | string;
-    	access: public | private;
-    }
-    response header {
-    	200: ok;
-    }
-    ```
-
-5.  채널 삭제
-
-    ```ts
-    DELETE /channels/{roomId}
-    response header {
-    	200: ok;
-    }
-    ```
-
-6.  채널 입장
+4.  채널 입장
 
     ```ts
     POST /channels/{roomId}/participants
@@ -100,7 +78,7 @@
     }
     ```
 
-7.  채널 퇴장
+5.  채널 퇴장
 
     ```ts
     DELETE /channels/{roomId}/participants
@@ -110,7 +88,7 @@
     }
     ```
 
-8.  채널 초대
+6.  채널 초대
 
     ```ts
     POST /channels/{roomId}/invitation/{nickname}
@@ -120,7 +98,7 @@
     }
     ```
 
-9.  채널 초대 수락->입장
+7.  채널 초대 수락->입장
 
     ```ts
     POST /channels/{roomId}/magicpass
@@ -130,7 +108,7 @@
     }
     ```
 
-10. 채팅 전송
+8. 채팅 전송
 
     ```ts
     POST /channels/{roomId}/chats
@@ -143,57 +121,7 @@
     }
     ```
 
-11. 관리자 / owner 권한 (킥 / 벤 / 뮤트)
-
-    ```ts
-    POST /channels/{roomId}/admin/{nickname}
-    response header {
-    	200: ok;
-    	400: no bang | error;
-    }
-    ```
-
-    ```ts
-    DELETE /channels/{roomId}/admin/{nickname}
-    response header {
-    	200: ok;
-    	400: no bang | error;
-    }
-    ```
-   
-    ```ts
-    POST /channels/{roomId}/ban/{nickname}
-    response header {
-    	200: ok;
-    	400: no bang | error;
-    }
-    ```
-
-    ```ts
-    POST /channels/{roomId}/kick/{nickname}
-    response header {
-    	200: ok;
-    	400: no bang | error;
-    }
-    ```
-
-    ```ts
-    POST /channels/{roomId}/mute/{nickname}
-    response header {
-    	200: ok;
-    	400: no bang | error;
-    }
-    ```
-
-    ```ts
-    DELETE /channels/{roomId}/mute/{nickname}
-    response header {
-    	200: ok;
-    	400: no bang | error;
-    }
-    ```
-
-12. 내가 속해있는 방
+9. 내가 속해있는 방
 
     ```ts
     GET /channels/me
@@ -210,7 +138,7 @@
     }
     ```
     
-13. 채팅 내역 불러오기
+10. 채팅 내역 불러오기
 	```ts
 	GET /channels/{roomId}chats?offset={offset}&count={count}
 	response body {
@@ -230,5 +158,84 @@
 	}
 	```
 	
+## 여기부터는 관리자 권한입니다
+1.  채널 수정
+
+    ```ts
+    PATCH /channels/{roomId}
+    request body {
+    	password: null | string;
+    	access: public | private;
+    }
+    response header {
+    	200: ok;
+    }
+    ```
+
+2.  채널 삭제
+
+    ```ts
+    DELETE /channels/{roomId}
+    response header {
+    	200: ok;
+    }
+    ```
+
+3. 관리자 임명
+
+    ```ts
+    POST /channels/{roomId}/admin/{nickname}
+    response header {
+    	200: ok;
+    	400: no bang | error;
+    }
+    ```
+
+4. 관리자 해제
+    ```ts
+    DELETE /channels/{roomId}/admin/{nickname}
+    response header {
+    	200: ok;
+    	400: no bang | error;
+    }
+    ```
+   
+5. 유저 벤
+    ```ts
+    POST /channels/{roomId}/ban/{nickname}
+    response header {
+    	200: ok;
+    	400: no bang | error;
+    }
+    ```
+
+6. 유저 추방 (kick)
+    ```ts
+    POST /channels/{roomId}/kick/{nickname}
+    response header {
+    	200: ok;
+    	400: no bang | error;
+    }
+    ```
+
+7. 유저 mute
+    ```ts
+    POST /channels/{roomId}/mute/{nickname}
+    response header {
+    	200: ok;
+    	400: no bang | error;
+    }
+    ```
+
+8. 유저 mute 해제
+    ```ts
+    DELETE /channels/{roomId}/mute/{nickname}
+    response header {
+    	200: ok;
+    	400: no bang | error;
+    }
+    ```
+
+
 
  
