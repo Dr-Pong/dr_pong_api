@@ -138,3 +138,12 @@
         hasNewChat: boolean;
     }
     ```
+
+12. 관계 조회 api
+
+    ```ts
+    /users/{nickname}/relations/{targetnickname}
+    respone body : {
+	status: "none" | "blocked" | "friend";
+    }
+    ```
