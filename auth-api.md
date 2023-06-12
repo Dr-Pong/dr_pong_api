@@ -17,7 +17,7 @@ response body {
 ## SignUp
 
 ```ts
-POST /signup
+POST /auth/signup
 request: {
 	nickname: string;
 	imgId: number;
