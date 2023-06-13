@@ -1,7 +1,7 @@
 ## GateWay to WebServer
 
 ```ts
-POST /user
+POST /users
 request body {
     id: number;
     nickname: string;
@@ -16,7 +16,7 @@ response{
 
 ## GateWay to ChatServer
 ```ts
-POST /user
+POST /users
 request body {
     id: number;
     nickname: string;
