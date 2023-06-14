@@ -59,8 +59,11 @@
     	password: null | string;
     	maxCount: number;
     }
+    response body {
+        id: string;
+    }
     response header {
-    	200: ok;
+    	201: ok;
     	400: title taken;
     }
     ```
@@ -73,7 +76,7 @@
         password: null | string;
     }
     response header {
-    	200: ok;
+    	201: ok;
     	400: full bang | wrong password | private | no bang;
     }
     ```
@@ -93,7 +96,7 @@
     ```ts
     POST /channels/{roomId}/invitation/{nickname}
     response header {
-    	200: ok;
+    	201: ok;
     	400: no bang;
     }
     ```
@@ -103,7 +106,7 @@
     ```ts
     POST /channels/{roomId}/magicpass
     response header {
-    	200: ok;
+    	201: ok;
         400: full bang | no bang;
     }
     ```
@@ -116,7 +119,7 @@
     	message: string;
     }
     response header {
-    	200: ok;
+    	201: ok;
     	400: no bang;
     }
     ```
@@ -186,7 +189,7 @@
     ```ts
     POST /channels/{roomId}/admin/{nickname}
     response header {
-    	200: ok;
+    	201: ok;
     	400: no bang | error;
     }
     ```
@@ -222,7 +225,7 @@
     ```ts
     POST /channels/{roomId}/mute/{nickname}
     response header {
-    	200: ok;
+    	201: ok;
     	400: no bang | error;
     }
     ```
