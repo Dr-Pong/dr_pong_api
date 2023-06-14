@@ -27,3 +27,14 @@ response{
   201: created;
 }
 ```
+
+```ts
+PATCH /users/{nickname}/image
+request body {
+	id: number;
+}
+response header {
+	202: accepted;
+	401: unauthorized;
+}
+```
