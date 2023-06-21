@@ -11,7 +11,7 @@ POST /games/invitation/{nickname}/{mode}
 
 2. Game 초대 취소
 ```ts
-POST /games/invitation/{nickname}/{mode}
+DELETE /games/invitation/{nickname}/{mode}
   response header {
     201: ok;
     400: no such user | unavailable(offline / ingame);
