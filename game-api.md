@@ -11,7 +11,7 @@ POST /games/invitation/{nickname}/{mode}
 
 2. Game 초대 취소
 ```ts
-DELETE /games/invitation/{nickname}
+DELETE /games/invitation/nickname/{nickname}
   response header {
     201: ok;
     400: no such user | unavailable(offline / ingame);
@@ -29,7 +29,7 @@ POST /games/invitation/{id}
 
 4. Game 초대 거절
 ```ts
-  DELETE /games/invitation/{id}
+  DELETE /games/invitation/id/{id}
   response header {
     200: ok;
   }
