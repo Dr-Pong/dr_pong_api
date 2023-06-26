@@ -45,7 +45,7 @@ POST /games/invitation/{id}
 
 6. Queue 퇴장
 ```ts
-  DELET /games/queue
+  DELETE /games/queue
   response header {
     200: ok;
   }
