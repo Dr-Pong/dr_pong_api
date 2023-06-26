@@ -22,7 +22,7 @@ DELETE /games/invitation/
 ```ts
 POST /games/invitation/{id} // invitation ID
   response body {
-    id: string;
+     gameId: string;
   }
   response header {
      201: ok;
