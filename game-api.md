@@ -21,6 +21,9 @@ DELETE /games/invitation/
 3. Game 초대 수락
 ```ts
 POST /games/invitation/{id} // invitation ID
+  response body {
+    id: string;
+  }
   response header {
      201: ok;
      400: no bang;
