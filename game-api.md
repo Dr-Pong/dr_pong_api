@@ -20,7 +20,7 @@ DELETE /games/invitation/
 
 3. Game 초대 수락
 ```ts
-POST /games/invitation/{id}
+POST /games/invitation/{id} // invitation ID
   response header {
      201: ok;
      400: no bang;
@@ -29,7 +29,7 @@ POST /games/invitation/{id}
 
 4. Game 초대 거절
 ```ts
-  DELETE /games/invitation/{id}
+  DELETE /games/invitation/{id} // invitation ID
   response header {
     200: ok;
   }
