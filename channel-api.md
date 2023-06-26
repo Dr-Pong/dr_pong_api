@@ -114,7 +114,7 @@
 7. 채널 초대 거절
 
     ```ts
-    DELETE /channels/{roomId}
+    DELETE /channels/{roomId}/invitation
     response header {
     	200: ok;
         400: error;
