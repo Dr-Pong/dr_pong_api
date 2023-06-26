@@ -111,6 +111,16 @@
     }
     ```
 
+7. 채널 초대 거절
+
+    ```ts
+    DELETE /channels/{roomId}
+    response header {
+    	200: ok;
+        400: error;
+    }
+    ```
+
 8. 채팅 전송
 
     ```ts
