@@ -6,7 +6,7 @@
 	    requestCount: number; // 친구 요청이 없으면 0 요청 최대50개만 가능
     }
     ```
-2. 게임 초대
+2. 게임 초대 목록
     ```ts
     GET /users/notifications/games
     response body {
@@ -20,7 +20,7 @@
         ]
     }
     ```
-3. 채널 초대
+3. 채널 초대 목록
     ```ts
     GET /users/notifications/channels
     response body {
@@ -36,19 +36,5 @@
         ]
     }
     ```
-4. 게임 초대 삭제
-    ```ts
-    DELETE /users/notifications/games/{id}
-    response header {
-	    200: ok;
-	    400: error;
-    }
-    ```
-5. 채널 초대 삭제
-    ```ts
-    DELETE /users/notifications/channels/{id}
-    response header {
-	    200: ok;
-	    400: error;
-    }
-    ```
+4. 게임 초대 삭제 => game api 문서에 있음
+5. 채널 초대 삭제 => channel api 문서에 있음
