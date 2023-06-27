@@ -2,7 +2,10 @@
 
 1. Game 초대
 ```ts
-POST /games/invitation/{nickname}/{mode}
+POST /games/invitation/{nickname}
+    response body {
+       mode: string;
+    }
     response header {
         201: ok;
         400: no such user | unavailable(offline / ingame);
@@ -40,7 +43,10 @@ POST /games/invitation/{id} // invitation ID
 
 5. Queue 입장
 ```ts
-  POST /games/queue/{type}/{mode}
+  POST /games/queue/{type}
+  response body {
+    mode: string;
+  }
   response header {
     201: ok;
   }
