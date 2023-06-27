@@ -104,9 +104,9 @@
 7.  채널 초대 수락->입장
 
     ```ts
-    PATCH /channels/{roomId}/magicpass
+    PATCH /channels/{roomId}/invitation
     response header {
-    	201: ok;
+    	200: ok;
         400: full bang | no bang;
     }
     ```
