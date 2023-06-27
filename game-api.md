@@ -3,7 +3,7 @@
 1. Game 초대
 ```ts
 POST /games/invitation/{nickname}
-    response body {
+    resquest body {
        mode: string;
     }
     response header {
@@ -23,7 +23,7 @@ DELETE /games/invitation/
 
 3. Game 초대 수락
 ```ts
-POST /games/invitation/{id} // invitation ID
+PATCH /games/invitation/{id} // invitation ID
   response body {
      gameId: string;
   }
@@ -44,7 +44,7 @@ POST /games/invitation/{id} // invitation ID
 5. Queue 입장
 ```ts
   POST /games/queue/{type}
-  response body {
+  request body {
     mode: string;
   }
   response header {
