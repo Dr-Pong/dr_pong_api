@@ -38,3 +38,39 @@ response header {
 	401: unauthorized;
 }
 ```
+
+
+## GameServer to WebServer
+```ts
+
+POST /games
+{
+player1: {
+		id: number;
+		score: number;
+		lpChange: number;
+	};
+player2: {
+		id: number;
+		score: number;
+		lpChange: number;
+	};
+mode: 'SFINAE' | 'NON-SFINAE';
+type: 'rank' | 'normal';
+startTime: Date;
+endTime: Date;
+logs: {
+	userId: number;
+	event: 'touch' | 'score';
+	round: number;
+	ball: {
+		speed: number;
+		direction: {x:number, y:number};
+		position: {x:number, y:number};
+		spinSpeed: number;
+		}
+	}[];
+}
+```
+
+
