@@ -144,6 +144,6 @@
     ```ts
     /users/{nickname}/relations/{targetnickname}
     respone body : {
-	status: "none" | "blocked" | "friend";
+	status: "none" | "blocked" | "friend" | "me";
     }
     ```
