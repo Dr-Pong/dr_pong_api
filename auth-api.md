@@ -58,6 +58,20 @@ response header {
 ```
 
 ```ts
+POST /auth/tfa
+request body {
+	password: string;
+}
+response header {
+	200: OK;
+	40~:
+}
+response body {
+	accessToken: string;
+}
+```
+
+```ts
 POST /auth/tfa/otp
 request body {
 	password: string;
