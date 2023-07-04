@@ -44,7 +44,7 @@ response header {
 ```ts
 
 POST /games
-{
+request body {
 player1: {
 		id: number;
 		score: number;
