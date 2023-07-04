@@ -94,7 +94,10 @@
 6.  채널 초대
 
     ```ts
-    POST /channels/{roomId}/invitation/{nickname}
+    POST /channels/{roomId}/invitation
+    request body {
+        nickname: string;
+    }
     response header {
     	201: ok;
     	400: no bang;
