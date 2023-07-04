@@ -2,9 +2,10 @@
 
 1. Game 초대
 ```ts
-POST /games/invitation/{nickname}
+POST /games/invitation
     resquest body {
        mode: string;
+       nickname: string;
     }
     response header {
         201: ok;
