@@ -71,6 +71,20 @@ logs: {
 		}
 	}[];
 }
+
+response body{
+	title{
+		userId: number;
+		name: string;
+		content: string;
+	}[]
+	acheivement{
+		userId: number
+		name: string;
+		content: string;
+		imgUrl: string;
+	}[]
+}
 ```
 
 
