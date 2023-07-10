@@ -47,3 +47,13 @@ response body {
 }
 
 ```
+
+```ts
+GET /users/{nickname}/records/{gameId}/exp
+response body {
+	beforeExp: number;
+	expChange: number;
+	levelExp: number;
+}
+
+```
