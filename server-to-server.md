@@ -56,7 +56,7 @@ player2: {
 		lpChange: number;
 	};
 mode: 'SFINAE' | 'NON-SFINAE';
-type: 'rank' | 'normal';
+type: 'ladder' | 'normal';
 startTime: Date;
 endTime: Date;
 logs: {
