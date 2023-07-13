@@ -88,3 +88,12 @@ response body{
 ```
 
 
+## GameServer to ChatServer
+``` ts
+PATCH /users/state
+request body {
+		userId: number;
+		gameId: string; // 임시로 부여된 게임 아이디. 종료시 null 전달
+}
+```
+
