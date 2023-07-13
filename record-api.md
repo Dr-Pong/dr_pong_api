@@ -6,7 +6,7 @@ response body {
 	records: [
 		{
 			gameId: number;
-			gameType: 'rank' | 'normal';
+			gameType: 'ladder' | 'normal';
 			playedAt: string; // 게임이 끝난 시간
 			me: {
 				imgUrl: string;
