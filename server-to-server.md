@@ -87,6 +87,14 @@ response body{
 }
 ```
 
+```ts
+GET /users/{id}/ranks/current
+response body {
+	lp: number;
+	profileImgUrl: string;
+}
+```
+
 
 ## GameServer to ChatServer
 ``` ts
