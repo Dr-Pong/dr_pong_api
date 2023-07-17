@@ -91,40 +91,7 @@
     }
     ```
 
-6.  채널 초대
-
-    ```ts
-    POST /channels/{roomId}/invitation
-    request body {
-        nickname: string;
-    }
-    response header {
-    	201: ok;
-    	400: no bang;
-    }
-    ```
-
-7.  채널 초대 수락->입장
-
-    ```ts
-    PATCH /channels/{roomId}/invitation
-    response header {
-    	200: ok;
-        400: full bang | no bang;
-    }
-    ```
-
-7. 채널 초대 거절
-
-    ```ts
-    DELETE /channels/{roomId}/invitation
-    response header {
-    	200: ok;
-        400: error;
-    }
-    ```
-
-8. 채팅 전송
+6. 채팅 전송
 
     ```ts
     POST /channels/{roomId}/chats
@@ -137,7 +104,7 @@
     }
     ```
 
-9. 내가 속해있는 방
+7. 내가 속해있는 방
 
     ```ts
     GET /channels/me
@@ -154,7 +121,7 @@
     }
     ```
     
-10. 채팅 내역 불러오기
+8. 채팅 내역 불러오기
 	```ts
 	GET /channels/{roomId}chats?offset={offset}&count={count}
 	response body {
