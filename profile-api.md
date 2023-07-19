@@ -48,7 +48,7 @@ response header {
 ```ts
 GET /users/{nickname}/ranks/total
 response body {
-	record: number | null;
+	bestLp: number | null;
 	rank: number | null;
 	tier: 'doctor' | 'master' | 'bachelor' | 'student' | 'egg';
 }
@@ -60,7 +60,7 @@ response header {
 ```ts
 GET /users/{nickname}/ranks/season
 response body {
-	record: number | null;
+	bestLp: number | null;
 	rank: number | null;
 	tier: 'doctor' | 'master' | 'bachelor' | 'student' | 'egg';
 }
