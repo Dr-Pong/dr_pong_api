@@ -105,3 +105,16 @@ request body {
 }
 ```
 
+## ChatServer to GameServer
+``` ts
+POST /gaems
+request body {
+  user1Id: number;
+  user2Id: number;
+  type: GameType;
+  mode: GameMode;
+}
+response body {
+  gameId: string;
+}
+```
